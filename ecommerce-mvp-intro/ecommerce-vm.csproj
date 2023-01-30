@@ -46,6 +46,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="alimentari.cs" />
+    <Compile Include="cancelleria.cs" />
+    <Compile Include="elettronica.cs" />
     <Compile Include="model\Cart.cs" />
     <Compile Include="model\EcommerceFactory.cs" />
     <Compile Include="view\Form1.cs">

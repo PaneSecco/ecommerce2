@@ -66,7 +66,6 @@ namespace csharp_oop_ecommerce_basic.model
 
 
         }
-
         public Cart Clone()
         {
             return new Cart(this);

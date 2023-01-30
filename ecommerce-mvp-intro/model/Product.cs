@@ -5,12 +5,8 @@ using System.Text;
 
 namespace csharp_oop_ecommerce_basic.model
 {
-
-    //base version by Marco Borelli Nov 2022
-    //extended and modified by olprofesur Nov-Dic 2022
-    public class Product
+    public abstract class Product
     {   
-        
         //ATTRIBUTES
         private string _id, _name, _manufacturer, _description;
         private float _price;
@@ -156,6 +152,5 @@ namespace csharp_oop_ecommerce_basic.model
         {
             return "Product:" +Id + ";" + Name + ";" + Manufacturer+";"+Description + ";" + Price;
         }
-
     }
 }
