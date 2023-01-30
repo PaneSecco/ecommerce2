@@ -8,32 +8,58 @@ namespace csharp_oop_ecommerce_basic.model
 {
     internal class alimentari : Product
     {
-        private int giorno;
-        private bool da_fare;
+        private int sconto;
+        private DateTime prevDate;
 
-        public alimentari(int giorno)
+        public alimentari(DateTime prevDate1)
         {
-            Giorno = giorno;
-            if (Giorno % 2 == 0)
+
+            PrevDate = prevDate;
+        }
+
+        public DateTime PrevDate
+        {
+            get { return prevDate; }
+            set { prevDate = value; }
+        }
+        public int Sconto
+        {
+            get { return sconto; }
+            set { sconto = value; }
+        }
+        public int sconto_(int costo_iniziale)
+        {
+            bool da_fare;
+            var today = DateTime.Now;
+            var diffOfDates = today - PrevDate;
+
+            if (diffOfDates.Days > 7)
             {
-                Da_fare = true;
+                da_fare = true;
             }
             else
             {
-                Da_fare = false;
+                da_fare = false;
             }
-        }
-        public int Giorno
-        {
-            get { return giorno; }
-            private set { giorno = value; }
-        }
 
-        public bool Da_fare
-        {
-            get { return da_fare; }
-            private set
-            { da_fare = value; }
+            if (today.Day % 2 == 0)
+            {
+                da_fare = true;
+            }
+            else
+            {
+                da_fare = false;
+            }
+
+            if (da_fare == true)
+            {
+                int sconto = costo_iniziale / 100 * Sconto;
+                return costo_iniziale - sconto;
+            }
+            else
+            {
+                return costo_iniziale;
+            }
         }
     }
 }

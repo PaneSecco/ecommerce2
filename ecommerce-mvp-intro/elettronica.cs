@@ -16,7 +16,7 @@ namespace csharp_oop_ecommerce_basic.model
             DayOfWeek d = DateTime.Today.DayOfWeek;
             Giorno = Convert.ToString(d);
 
-            if (Giorno == "lunedì")
+            if (Giorno == "Lunedì")
             {
                 Da_fare = true;
             }
