@@ -9,9 +9,21 @@ namespace csharp_oop_ecommerce_basic.model
     {   
         //ATTRIBUTES
         private string _id, _name, _manufacturer, _description;
-        private float _price;
+        protected float _price;
+        private int sconto;
 
         //SET AND GET MEDIANTE PROPERTIES
+
+        public int Sconto
+        {
+            get { return sconto; }
+            set {
+                if (value > 0 && value < 100)
+                    sconto = value;
+                else
+                    throw new Exception("sconto must be between 0 and 100");
+            }
+        }
         public float Price
         {
             get
@@ -89,7 +101,7 @@ namespace csharp_oop_ecommerce_basic.model
 
         //CONSTRUCTORS
 
-        public Product(string id, string name, string prod, string descr, float price)
+        public Product(string id, string name, string prod, string descr, float price, int sconto)
         {
             if(String.IsNullOrEmpty(id) || String.IsNullOrEmpty(name) || String.IsNullOrEmpty(prod) || price<=0)
             {
@@ -102,37 +114,31 @@ namespace csharp_oop_ecommerce_basic.model
             Price = price;
         }
 
-        public Product(string id, string name, string prod, string descr) : this(id, name, prod, descr, 10)
+        public Product(string id, string name, string prod, string descr) : this(id, name, prod, descr, 10, 9)
         {
         }
 
-        public Product(string id, string name, string prod) : this(id, name, prod, "N/A", 10)
+        public Product(string id, string name, string prod) : this(id, name, prod, "N/A", 10, 9)
         {
         }
 
-        public Product() : this("IDVUOTO", "N/A", "N/A", "N/A", 10)
+        public Product() : this("IDVUOTO", "N/A", "N/A", "N/A", 10, 9)
         {
         }
 
-        public Product(string id, string name, string prod, float price) : this(id, name, prod, "N/A", price)
+        public Product(string id, string name, string prod, float price) : this(id, name, prod, "N/A", price, 9)
         {
 
         }
 
-        public Product(string id) : this(id, "N/A", "N/A", "N/A", 1)
+        public Product(string id) : this(id, "N/A", "N/A", "N/A", 1, 9)
         {
 
         }
 
         //copy constructor for clone
-        protected Product(Product other) : this(other.Id, other.Name, other.Manufacturer, other.Description, other.Price)
+        protected Product(Product other) : this(other.Id, other.Name, other.Manufacturer, other.Description, other.Price, 9)
         {
-        }
-
-        //clone
-        public Product Clone()
-        {
-            return new Product(this);
         }
 
 
@@ -151,6 +157,11 @@ namespace csharp_oop_ecommerce_basic.model
         public override string ToString()
         {
             return "Product:" +Id + ";" + Name + ";" + Manufacturer+";"+Description + ";" + Price;
+        }
+
+        public virtual float sconto_()
+        {
+            return -1;
         }
     }
 }

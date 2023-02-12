@@ -8,31 +8,24 @@ namespace csharp_oop_ecommerce_basic.model
 {
     public class cancelleria : Product
     {
-        private string giorno;
-        private bool da_fare;
-        public cancelleria(int giorno)
+        public cancelleria()
         {
-            Giorno = giorno;
-            if (Giorno % 2 == 0)
+
+        }
+
+        public override float sconto_()
+        {
+            var today = DateTime.Now;
+
+            if (today.Day % 2 == 0)
             {
-                Da_fare = true;
+                float sconto = Price / 100 * Sconto;
+                return Price - sconto;
             }
             else
             {
-                Da_fare = false;
+                return this._price;
             }
-        }
-        public int Giorno
-        {
-            get { return giorno; }
-            private set { giorno = value; }
-        }
-
-        public bool Da_fare
-        {
-            get { return da_fare; }
-            private set
-            { da_fare = value; }
         }
     }
 }

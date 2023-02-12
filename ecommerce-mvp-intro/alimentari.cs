@@ -11,9 +11,9 @@ namespace csharp_oop_ecommerce_basic.model
         private int sconto;
         private DateTime prevDate;
 
-        public alimentari(DateTime prevDate1)
+        public alimentari(string id, string name, string prod, string descr, int sconto, DateTime prevDate1) : base(id, name, prod, descr)
         {
-
+            Sconto = sconto;
             PrevDate = prevDate;
         }
 
@@ -22,27 +22,13 @@ namespace csharp_oop_ecommerce_basic.model
             get { return prevDate; }
             set { prevDate = value; }
         }
-        public int Sconto
-        {
-            get { return sconto; }
-            set { sconto = value; }
-        }
-        public int sconto_(int costo_iniziale)
+        public override float sconto_ ()
         {
             bool da_fare;
             var today = DateTime.Now;
             var diffOfDates = today - PrevDate;
 
-            if (diffOfDates.Days > 7)
-            {
-                da_fare = true;
-            }
-            else
-            {
-                da_fare = false;
-            }
-
-            if (today.Day % 2 == 0)
+            if (diffOfDates.Days > 7 && today.Day % 2 == 0)
             {
                 da_fare = true;
             }
@@ -53,12 +39,12 @@ namespace csharp_oop_ecommerce_basic.model
 
             if (da_fare == true)
             {
-                int sconto = costo_iniziale / 100 * Sconto;
-                return costo_iniziale - sconto;
+                float sconto = Price / 100 * Sconto;
+                return Price - sconto;
             }
             else
             {
-                return costo_iniziale;
+                return this._price;
             }
         }
     }

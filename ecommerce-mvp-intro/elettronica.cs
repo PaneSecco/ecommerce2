@@ -8,34 +8,25 @@ namespace csharp_oop_ecommerce_basic.model
 {
     public class elettronica : Product
     {
-        private string giorno;
-        private bool da_fare;
+        public elettronica() 
+        {
+            
+        }
 
-        public elettronica()
+        public override float sconto_()
         {
             DayOfWeek d = DateTime.Today.DayOfWeek;
-            Giorno = Convert.ToString(d);
+            string giorno = Convert.ToString(d);
 
-            if (Giorno == "Lunedì")
+            if (giorno == "Lunedì")
             {
-                Da_fare = true;
+                float sconto = Price / 100 * Sconto;
+                return Price - sconto;
             }
             else
             {
-                Da_fare = false;    
+                return this._price;
             }
-        }
-
-        public string Giorno
-        {
-            get { return giorno; }
-            private set { giorno = value; }
-        }
-
-        public bool Da_fare
-        {
-            get { return da_fare; }
-            private set { da_fare = value; }
         }
     }
 }
