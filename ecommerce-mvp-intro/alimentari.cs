@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace csharp_oop_ecommerce_basic.model
 {
-    internal class alimentari : Product
+    public class Alimentari : Product
     {
         private int sconto;
         private DateTime prevDate;
 
-        public alimentari(string id, string name, string prod, string descr, int sconto, DateTime prevDate1) : base(id, name, prod, descr)
+        public Alimentari(string id, string name, string prod, string descr, int sconto, DateTime prevDate1) : base(id, name, prod, descr)
         {
             Sconto = sconto;
             PrevDate = prevDate;

@@ -141,6 +141,10 @@ namespace csharp_oop_ecommerce_basic.model
         {
         }
 
+        protected Product Clone()
+        {
+            return new Product(this);   
+        }
 
         //Equals
 

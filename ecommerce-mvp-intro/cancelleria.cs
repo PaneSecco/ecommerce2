@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace csharp_oop_ecommerce_basic.model
 {
-    public class cancelleria : Product
+    public abstract class Cancelleria : Product
     {
-        public cancelleria()
+        public Cancelleria(string id, string name, string prod, string descr, int sconto) : base(id, name, prod, descr)
         {
-
+            Sconto = sconto;
         }
 
         public override float sconto_()

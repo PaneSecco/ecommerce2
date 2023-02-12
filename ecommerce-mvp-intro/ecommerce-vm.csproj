@@ -46,11 +46,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="alimentari.cs" />
-    <Compile Include="cancelleria.cs" />
-    <Compile Include="elettronica.cs" />
+    <Compile Include="Alimentari.cs" />
+    <Compile Include="Cancelleria.cs" />
+    <Compile Include="Elettronica.cs" />
+    <Compile Include="FogliCarta.cs" />
     <Compile Include="model\Cart.cs" />
     <Compile Include="model\EcommerceFactory.cs" />
+    <Compile Include="Penne.cs" />
     <Compile Include="view\Form1.cs">
       <SubType>Form</SubType>
     </Compile>

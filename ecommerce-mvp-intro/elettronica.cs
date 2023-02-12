@@ -6,11 +6,18 @@ using System.Threading.Tasks;
 
 namespace csharp_oop_ecommerce_basic.model
 {
-    public class elettronica : Product
+    public class Elettronica : Product
     {
-        public elettronica() 
+        private string modello_specifico;
+        public Elettronica(string id, string name, string prod, string descr, int sconto, string modello_specifico) : base(id, name, prod, descr)
         {
-            
+            Sconto = sconto;
+            Modello_specifico = modello_specifico;
+        }
+        public string Modello_specifico
+        {
+            get { return modello_specifico; }
+            set { modello_specifico = value; }
         }
 
         public override float sconto_()
