@@ -60,7 +60,7 @@ namespace csharp_oop_ecommerce_basic.model
             {
                 if (c._prod[i] != null)
                 {
-                    _prod[i] = c._prod[i].Clone();
+                    //_prod[i] = c._prod[i].Clone();
                 }
             }
 
